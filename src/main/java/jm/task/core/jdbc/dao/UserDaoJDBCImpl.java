@@ -1,3 +1,4 @@
+/*
 package jm.task.core.jdbc.dao;
 
 import jm.task.core.jdbc.model.User;
@@ -112,3 +113,4 @@ public class UserDaoJDBCImpl implements UserDao {
         }
     }
 }
+*/

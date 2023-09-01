@@ -1,27 +1,22 @@
 package jm.task.core.jdbc.util;
 
-//import java.sql.*;
-import java.sql.Connection;
-import java.sql.Driver;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import jm.task.core.jdbc.model.User;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 public class Util {
 
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/mydbtest";
-    private static final String DB_USERNAME = "root";
-    private static final String DB_PASSWORD = "root";
+    public static SessionFactory getSessionFactory() {
 
-    public static Connection getConnection() {
-
-        Connection connection = null;
+        Configuration configuration = new Configuration().addAnnotatedClass(User.class);
         try {
-            Driver driver = new com.mysql.cj.jdbc.Driver();
-            DriverManager.registerDriver(driver);
-            connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
-        } catch (SQLException e) {
-            System.out.println("Connection ERROR");
+            SessionFactory sessionFactory = configuration.buildSessionFactory();
+        //    Session session = sessionFactory.getCurrentSession();
+            return sessionFactory;
+        } catch (Exception e) {
+                System.out.println("Problem creating session");
+                e.printStackTrace();
         }
-        return connection;
+        return null;
     }
 }
