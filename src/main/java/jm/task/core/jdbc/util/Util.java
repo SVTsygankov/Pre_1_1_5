@@ -1,5 +1,4 @@
 package jm.task.core.jdbc.util;
-
 import jm.task.core.jdbc.model.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -11,7 +10,6 @@ public class Util {
         Configuration configuration = new Configuration().addAnnotatedClass(User.class);
         try {
             SessionFactory sessionFactory = configuration.buildSessionFactory();
-        //    Session session = sessionFactory.getCurrentSession();
             return sessionFactory;
         } catch (Exception e) {
                 System.out.println("Problem creating session");
