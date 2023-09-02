@@ -9,8 +9,7 @@ public class Util {
 
         Configuration configuration = new Configuration().addAnnotatedClass(User.class);
         try {
-            SessionFactory sessionFactory = configuration.buildSessionFactory();
-            return sessionFactory;
+            return configuration.buildSessionFactory();
         } catch (Exception e) {
                 System.out.println("Problem creating session");
                 e.printStackTrace();
