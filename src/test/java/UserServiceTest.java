@@ -87,6 +87,7 @@ public class UserServiceTest {
     public void cleanUsersTable() {
         try {
             userService.dropUsersTable();
+
             userService.createUsersTable();
             userService.saveUser(testName, testLastName, testAge);
             userService.cleanUsersTable();
